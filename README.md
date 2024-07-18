@@ -9,3 +9,10 @@ Le dépôt contient de quoi répliquer les figures et les données de la [note e
 [Code R](figure1.R)
 
 ![Figure 1](figure1.png)
+
+### Figure 2 : Charge d'intérêt vs. charge d'intérêt réelle (% du PIB)
+
+[Code R](figure2.R)
+
+![Figure 1](figure2.png)
+

@@ -1,5 +1,4 @@
 library(tidyverse)
-library(curl)
 
 offline <- T
 
@@ -7,7 +6,7 @@ version <- "7722817"
 
 temp <- tempfile()
 
-curl_download(paste0("https://www.insee.fr/fr/statistiques/fichier/", version, "/t_men_val.xls"),
+curl::curl_download(paste0("https://www.insee.fr/fr/statistiques/fichier/", version, "/t_men_val.xls"),
               destfile = temp,
               quiet = F)
 
