@@ -14,5 +14,11 @@ Le dépôt contient de quoi répliquer les figures et les données de la [note e
 
 [Code R](figure2.R)
 
-![Figure 1](figure2.png)
+![Figure 2](figure2.png)
+
+### Figure 3 : Déficit public et déficit public corrigé de la « taxe inflationniste » (% du PIB)
+
+[Code R](figure3.R)
+
+![Figure 3](figure3.png)
 
