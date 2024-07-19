@@ -34,7 +34,7 @@ figure2 |>
   ggplot() + geom_line(aes(x = date, y = value, color = variable)) +
   theme_minimal() + xlab("") + ylab("") +
   theme(legend.title = element_blank(),
-        legend.position = c(0.3, 0.15)) +
+        legend.position = c(0.3, 0.85)) +
   scale_x_date(breaks = as.Date(paste0(seq(1978, 2100, 5), "-01-01")),
                labels = scales::date_format("%Y")) +
   scale_y_continuous(breaks = 0.01*seq(-100, 100, 1),
