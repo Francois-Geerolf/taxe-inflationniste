@@ -3,6 +3,8 @@ library(readxl)
 
 # Version - Comptes de la Nation 2023 -------
 
+url_insee <- "https://www.insee.fr/fr/statistiques/fichier/"
+
 # https://www.insee.fr/fr/statistiques/8068582
 version1 <- "8068582"
 
@@ -16,7 +18,7 @@ version3 <- "8068612"
 
 temp <- tempfile()
 
-curl::curl_download(paste0("https://www.insee.fr/fr/statistiques/fichier/", version1, "/T_1101_1103.xlsx"),
+curl::curl_download(paste0(url_insee, version1, "/T_1101_1103.xlsx"),
                     temp)
 
 T_1101 <- read_excel(temp, sheet = "T_1101 en niveau", skip = 3) |>
@@ -36,7 +38,7 @@ unlink(temp)
 
 temp <- tempfile()
 
-curl::curl_download(paste0("https://www.insee.fr/fr/statistiques/fichier/", version1, "/T_1101_1103.xlsx"),
+curl::curl_download(paste0(url_insee, version1, "/T_1101_1103.xlsx"),
                     temp)
 
 T_1103 <- read_excel(temp, sheet = "T_1103 en évolution", skip = 3) |>
@@ -56,7 +58,7 @@ unlink(temp)
 
 temp <- tempfile()
 
-curl::curl_download(paste0("https://www.insee.fr/fr/statistiques/fichier/", version1, "/T_1101_1103.xlsx"),
+curl::curl_download(paste0(url_insee, version1, "/T_1101_1103.xlsx"),
                     temp)
 
 T_1102 <- read_excel(temp, sheet = "T_1102 en évolution", skip = 3) |>
@@ -76,7 +78,7 @@ unlink(temp)
 
 temp <- tempfile()
 
-curl::curl_download(paste0("https://www.insee.fr/fr/statistiques/fichier/", version2, "/t_3101.xlsx"),
+curl::curl_download(paste0(url_insee, version2, "/t_3101.xlsx"),
                     temp)
 
 t_3101 <- read_excel(temp, skip = 2) |>
@@ -96,7 +98,7 @@ unlink(temp)
 
 temp <- tempfile()
 
-curl::curl_download(paste0("https://www.insee.fr/fr/statistiques/fichier/", version2, "/t_3106.xlsx"),
+curl::curl_download(paste0(url_insee, version2, "/t_3106.xlsx"),
                     temp)
 
 t_3106 <- read_excel(temp, skip = 1) |>
@@ -117,7 +119,7 @@ unlink(temp)
 
 temp <- tempfile()
 
-curl::curl_download(paste0("https://www.insee.fr/fr/statistiques/fichier/", version3, "/T_7301.xlsx"),
+curl::curl_download(paste0(url_insee, version3, "/T_7301.xlsx"),
                     temp)
 
 T_7301 <- read_excel(temp, skip = 4, sheet = 2) |>
