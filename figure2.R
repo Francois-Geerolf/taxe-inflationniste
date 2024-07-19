@@ -1,11 +1,22 @@
 library(tidyverse)
 library(readxl)
 
+# Version - Comptes de la Nation 2023 -------
+
+# https://www.insee.fr/fr/statistiques/8068582
+version1 <- "8068582"
+
+# https://www.insee.fr/fr/statistiques/8068622
+version2 <- "8068622"
+
+# https://www.insee.fr/fr/statistiques/8068612
+version3 <- "8068612"
+
 # PIB --------
 
 temp <- tempfile()
 
-curl::curl_download("https://www.insee.fr/fr/statistiques/fichier/8068582/T_1101_1103.xlsx",
+curl::curl_download(paste0("https://www.insee.fr/fr/statistiques/fichier/", version1, "/T_1101_1103.xlsx"),
                     temp)
 
 T_1101 <- read_excel(temp, sheet = "T_1101 en niveau", skip = 3) |>
@@ -25,7 +36,7 @@ unlink(temp)
 
 temp <- tempfile()
 
-curl::curl_download("https://www.insee.fr/fr/statistiques/fichier/8068582/T_1101_1103.xlsx",
+curl::curl_download(paste0("https://www.insee.fr/fr/statistiques/fichier/", version1, "/T_1101_1103.xlsx"),
                     temp)
 
 T_1103 <- read_excel(temp, sheet = "T_1103 en évolution", skip = 3) |>
@@ -45,7 +56,7 @@ unlink(temp)
 
 temp <- tempfile()
 
-curl::curl_download("https://www.insee.fr/fr/statistiques/fichier/8068582/T_1101_1103.xlsx",
+curl::curl_download(paste0("https://www.insee.fr/fr/statistiques/fichier/", version1, "/T_1101_1103.xlsx"),
                     temp)
 
 T_1102 <- read_excel(temp, sheet = "T_1102 en évolution", skip = 3) |>
@@ -65,7 +76,7 @@ unlink(temp)
 
 temp <- tempfile()
 
-curl::curl_download("https://www.insee.fr/fr/statistiques/fichier/8068622/t_3101.xlsx",
+curl::curl_download(paste0("https://www.insee.fr/fr/statistiques/fichier/", version2, "/t_3101.xlsx"),
                     temp)
 
 t_3101 <- read_excel(temp, skip = 2) |>
@@ -85,7 +96,7 @@ unlink(temp)
 
 temp <- tempfile()
 
-curl::curl_download("https://www.insee.fr/fr/statistiques/fichier/8068622/t_3106.xlsx",
+curl::curl_download(paste0("https://www.insee.fr/fr/statistiques/fichier/", version2, "/t_3106.xlsx"),
                     temp)
 
 t_3106 <- read_excel(temp, skip = 1) |>
@@ -106,7 +117,7 @@ unlink(temp)
 
 temp <- tempfile()
 
-curl::curl_download("https://www.insee.fr/fr/statistiques/fichier/8068612/T_7301.xlsx",
+curl::curl_download(paste0("https://www.insee.fr/fr/statistiques/fichier/", version3, "/T_7301.xlsx"),
                     temp)
 
 T_7301 <- read_excel(temp, skip = 4, sheet = 2) |>
@@ -124,6 +135,7 @@ charge_interets <- T_7301 |>
   transmute(year, charge_interets = `56` - `47`)
 
 unlink(temp)
+rm(temp)
 
 # Données ----------
 
@@ -157,7 +169,4 @@ save(figure2, file = "figure2.rds")
 
 ggsave("figure2.png", width = 1.25*6, height = 1.25*3.375)
 ggsave("figure2.pdf", width = 1.25*6, height = 1.25*3.375)
-
-
-
 
