@@ -20,7 +20,7 @@ Le dépôt contient de quoi répliquer les figures et les données de la [note e
 
 [Code R](figure3.R)
 
-![Figure 3](figure3.png)
+![Figure 3](figure3b.png)
 
 ### Table 1 : En 2023, une diminution du ratio Dette/PIB malgré un déficit à 5.5% du PIB 
 
