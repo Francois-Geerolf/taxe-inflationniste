@@ -79,6 +79,8 @@ dette_PIB <- t_3101 |>
   filter(line == 10) |>
   select(year, dette_PIB = value)
 
+unlink(temp)
+
 # Deficit en % du PIB --------
 
 temp <- tempfile()
@@ -97,6 +99,8 @@ t_3106 <- read_excel(temp, skip = 1) |>
 deficit_PIB <- t_3106 |>
   filter(line == 10) |>
   select(year, deficit_PIB = value)
+
+unlink(temp)
 
 # Charge d'intérêt ----------
 
@@ -118,6 +122,8 @@ charge_interets <- T_7301 |>
   select(year, line, value) |>
   spread(line, value) |>
   transmute(year, charge_interets = `56` - `47`)
+
+unlink(temp)
 
 # Données ----------
 
