@@ -2,7 +2,8 @@ library(tidyverse)
 
 offline <- T
 
-version <- "7722817"
+# https://www.insee.fr/fr/statistiques/fichier/8196648/t_men_val.xls
+version <- "8196648"
 
 temp <- tempfile()
 
@@ -33,7 +34,8 @@ figure1 %>%
         axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1)) +
   geom_label(data = . %>% 
               filter(date == max(date)),
-            aes(x = date, y = value,  color = variable, label = round(value, 1)))
+            aes(x = date, y = value,  color = variable, label = round(value, 1))) +
+  labs(caption = "Source: Insee, calculs de l'auteur")
 
 ggsave("figure1.png", width = 1.25*6, height = 1.25*3.375)
 ggsave("figure1.pdf", width = 1.25*6, height = 1.25*3.375)

@@ -88,7 +88,7 @@ temp <- tempfile()
 curl::curl_download(paste0(url_insee, version2, "/t_3101.xlsx"),
                     temp)
 
-t_3101 <- read_excel(temp, skip = 2) |>
+t_3101 <- read_excel(temp, sheet = "T_3101", skip = 3) |>
   tidy2()
 
 dette_PIB <- t_3101 |>
@@ -134,6 +134,7 @@ rm(temp)
 
 # Données ----------
 
+
 figure2 <- PIB |>
   full_join(deflateur, by = "year") |>
   full_join(croissance_reelle, by = "year") |>
@@ -144,6 +145,7 @@ figure2 <- PIB |>
          taxe_inflationniste = taxe_inflationniste_PIB*PIB/100) |>
   filter(year >= 1978)
 
+load("figure2.rds")
 
 figure2 |>
   transmute(date = as.Date(paste0(year, "-01-01")),
@@ -158,7 +160,8 @@ figure2 |>
                labels = scales::date_format("%Y")) +
   scale_y_continuous(breaks = 0.01*seq(-100, 100, 1),
                      labels = scales::percent_format(accuracy = 1)) +
-  geom_hline(yintercept = 0, linetype = "dashed")
+  geom_hline(yintercept = 0, linetype = "dashed") +
+  labs(caption = "Source: Insee, calculs de l'auteur")
 
 save(figure2, file = "figure2.rds")
 

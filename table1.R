@@ -47,7 +47,9 @@ table1 <- tibble(`% ou Md€` = c("% du PIB",
     `Déficit 2023` = gt::html("Déficit<br>2023"),
     `Taxe inflationniste` = gt::html("Taxe<br>inflationniste"),
     `Effet croissance` = gt::html("Effet<br>croissance")
-  )
+  ) |>
+  gt::tab_footnote("Source: Insee, calculs de l'auteur")
+
 
 table1
 

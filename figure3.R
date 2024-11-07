@@ -18,7 +18,8 @@ figure2 |>
                labels = scales::date_format("%Y")) +
   scale_y_continuous(breaks = 0.01*seq(-100, 100, 1),
                      labels = scales::percent_format(accuracy = 1)) +
-  geom_hline(yintercept = 0, linetype = "dashed")
+  geom_hline(yintercept = 0, linetype = "dashed") +
+  labs(caption = "Source: Insee, calculs de l'auteur")
 
 ggsave("figure3.png", width = 1.25*6, height = 1.25*3.375)
 ggsave("figure3.pdf", width = 1.25*6, height = 1.25*3.375)
@@ -39,7 +40,8 @@ figure2 |>
                labels = scales::date_format("%Y")) +
   scale_y_continuous(breaks = 0.01*seq(-100, 100, 1),
                      labels = scales::percent_format(accuracy = 1)) +
-  geom_hline(yintercept = 0, linetype = "dashed")
+  geom_hline(yintercept = 0, linetype = "dashed") +
+  labs(caption = "Source: Insee, calculs de l'auteur")
 
 ggsave("figure3b.png", width = 1.25*6, height = 1.25*3.375)
 ggsave("figure3b.pdf", width = 1.25*6, height = 1.25*3.375)
