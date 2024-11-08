@@ -2,7 +2,7 @@
 
 ## Réplication
 
-Le dépôt contient de quoi répliquer les figures et les données de la [note en lien](https://fgeerolf.com/taxe-inflatoinniste.pdf):
+Le dépôt contient de quoi répliquer les figures et les données de la [note en lien](https://fgeerolf.com/taxe-inflationniste.html):
 
 ### Figure 1 : Croissance des intérêts et dividendes nets reçus, et du revenu disponible brut (2021T4-)
 
